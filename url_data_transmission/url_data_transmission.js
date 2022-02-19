@@ -20,12 +20,14 @@ var ABC = {
 function createURL(){
     generated_url.value=window.location.origin + window.location.pathname + "?" + text_area.value.replaceAll("\n","#ENTER#")
 }
+function getDataFromUrl(){
+    return window.location.href.split("?")[1]
+}
 
 
 
 
-
-data=window.location.search.slice(1,window.location.search.length)
+data=getDataFromUrl()
 binary_data=ABC.toBinary(data)
 data_replace_enter=data.replaceAll("#ENTER#","\n")
 .replaceAll("%20"," ")
