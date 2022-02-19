@@ -18,7 +18,7 @@ var ABC = {
     }
   };
 function createURL(){
-    generated_url.value=window.location.origin + window.location.pathname + "?" + text_area.value.replaceAll("\n","#ENTER#")
+    generated_url.value=window.location.origin + window.location.pathname + "?" + encodeURI(text_area.value)
 }
 function getDataFromUrl(){
     return window.location.href.split("?")[1]
@@ -29,6 +29,5 @@ function getDataFromUrl(){
 
 data=getDataFromUrl()
 binary_data=ABC.toBinary(data)
-data_replace_enter=data.replaceAll("#ENTER#","\n")
-.replaceAll("%20"," ")
-text_area.value=data_replace_enter
+decodeURIData=decodeURI(data)
+text_area.value=decodeURIData
